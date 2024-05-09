@@ -74,7 +74,6 @@ void	print_list(struct ListNode *head)
 	// printf("\n");
 }
 
-//TESTING: Main for testing Everting
 /**
  *int main(void)
  *{
