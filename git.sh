@@ -2,7 +2,7 @@
 
 # Color codes
 red='\033[0;31m'
-green='\033[0;32m'
+green='\033[1;32m'
 reset='\033[0m'  # Reset color
 
 # Check for empty argument
