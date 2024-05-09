@@ -1,7 +1,7 @@
 
 # LeetCode Learning Adventure
 
-![leetCode - banner](image.png)
+![leetCode - banner](./assets/image.png)
 
 ## ⭐️ Getting Started
 
