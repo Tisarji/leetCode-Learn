@@ -1,9 +1,9 @@
 /**
- * Subject: in Swap-Nodes-In-Pairs
+ * SUBJECT: SWAP-NODES-IN-PAIRS
  *
  * Given a linked list, swap every two adjacent nodes and return its head.
  * You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
- */
+**/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,7 +25,7 @@ struct ListNode
  * `ListNode` struct.
  * 
  * @return The function `createNode` is returning a pointer to a newly created `ListNode` structure.
- */
+**/
 struct ListNode*	createNode(int value)
 {
 	struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
@@ -43,7 +43,7 @@ struct ListNode*	createNode(int value)
  * 
  * @return The function `swapPairs` is returning a pointer to the new head of the linked list after
  * swapping pairs of nodes.
- */
+**/
 struct ListNode	*swapPairs(struct ListNode *head)
 {
 	if (head == NULL || head->next == NULL)
@@ -63,7 +63,7 @@ struct ListNode	*swapPairs(struct ListNode *head)
  * @param head The `head` parameter in the `print_list` function is a pointer to the head of a linked
  * list. The function iterates through the linked list starting from the head node and prints the value
  * of each node in the list.
- */
+**/
 void	print_list(struct ListNode *head)
 {
 	while (head != NULL)
@@ -94,4 +94,4 @@ void	print_list(struct ListNode *head)
  *
  *	return (0);
  *}
-*/
+**/
