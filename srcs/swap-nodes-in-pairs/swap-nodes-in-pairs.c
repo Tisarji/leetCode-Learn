@@ -15,7 +15,6 @@ struct ListNode
 	struct ListNode *next;
 };
 
-
 /**
  * The function createNode() dynamically allocates memory for a new ListNode, initializes its value,
  * and sets its next pointer to NULL.
