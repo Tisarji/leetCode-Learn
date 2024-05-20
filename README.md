@@ -19,8 +19,10 @@ My LeetCode Diary
 This section serves as a daily log to track my progress. Use the following format to record my practice sessions:
 
 > - swap-nodes-in-pairs
-> -
-> -
+> - minimum-cost-to-hire-k-workers
+> - sqrt(x)
+> - sum-of-all-subset-XOR-totals
+> - wildcard-matching
 
 #### 📝 Learning Notes
 
