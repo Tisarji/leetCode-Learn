@@ -34,43 +34,48 @@
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
 
-// Helper function to check if a substring is a palindrome
-bool isPalindrome(char *s, int start, int end)
+// Function to check if a substring is a palindrome
+bool isPalindrome(const char *s, int l, int r)
 {
-	while (start < end)
+	while (l < r)
 	{
-		if (s[start] != s[end])
-		{
-			return false;
-		}
-		start++;
-		end--;
+		if (s[l++] != s[r--])
+			return (false);
 	}
-	return true;
+	return (true);
 }
 
-void backtrack(char *s, int start, int len, char ****result, int *returnSize, int **returnColumnSizes, char **currentList, int currentListSize)
+// Recursive function for depth-first search
+void dfs(const char *s, int start, int len, char ***path, int *pathSize, int *pathCapacity,
+		 char ****ans, int *returnSize, int **returnColumnSizes)
 {
 	if (start == len)
 	{
 		(*returnSize)++;
-		*result = realloc(*result, sizeof(char **) * (*returnSize));
-		(*result)[*returnSize - 1] = malloc(sizeof(char *) * currentListSize);
+		*ans = realloc(*ans, sizeof(char **) * (*returnSize));
+		(*ans)[*returnSize - 1] = malloc(sizeof(char *) * (*pathSize));
 		(*returnColumnSizes) = realloc(*returnColumnSizes, sizeof(int) * (*returnSize));
-		(*returnColumnSizes)[*returnSize - 1] = currentListSize;
+		(*returnColumnSizes)[*returnSize - 1] = *pathSize;
 
-		for (int i = 0; i < currentListSize; i++)
-			(*result)[*returnSize - 1][i] = strdup(currentList[i]);
-		return;
+		for (int i = 0; i < *pathSize; i++)
+			(*ans)[*returnSize - 1][i] = strdup((*path)[i]);
+		return ;
 	}
 
-	for (int end = start; end < len; end++)
+	for (int i = start; i < len; ++i)
 	{
-		if (isPalindrome(s, start, end))
+		if (isPalindrome(s, start, i))
 		{
-			currentList[currentListSize] = strndup(s + start, end - start + 1);
-			backtrack(s, end + 1, len, result, returnSize, returnColumnSizes, currentList, currentListSize + 1);
-			free(currentList[currentListSize]);
+			if (*pathSize >= *pathCapacity)
+			{
+				*pathCapacity *= 2;
+				*path = realloc(*path, sizeof(char *) * (*pathCapacity));
+			}
+			(*path)[*pathSize] = strndup(s + start, i - start + 1);
+			(*pathSize)++;
+			dfs(s, i + 1, len, path, pathSize, pathCapacity, ans, returnSize, returnColumnSizes);
+			free((*path)[*pathSize - 1]);
+			(*pathSize)--;
 		}
 	}
 }
@@ -80,15 +85,16 @@ char ***partition(char *s, int *returnSize, int **returnColumnSizes)
 	int len = strlen(s);
 	*returnSize = 0;
 	*returnColumnSizes = NULL;
-	char ***result = NULL;
-	char **currentList = malloc(sizeof(char *) * len);
+	char ***ans = NULL;
+	int pathCapacity = 16;
+	char **path = malloc(sizeof(char *) * pathCapacity);
+	int pathSize = 0;
 
-	backtrack(s, 0, len, &result, returnSize, returnColumnSizes, currentList, 0);
+	dfs(s, 0, len, &path, &pathSize, &pathCapacity, &ans, returnSize, returnColumnSizes);
 
-	free(currentList);
-	return result;
+	free(path);
+	return ans;
 }
-
 int main(void)
 {
 	char s1[] = "aab";
