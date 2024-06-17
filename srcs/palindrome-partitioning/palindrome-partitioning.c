@@ -82,13 +82,13 @@ void dfs(const char *s, int start, int len, char ***path, int *pathSize, int *pa
 
 char ***partition(char *s, int *returnSize, int **returnColumnSizes)
 {
-	int len = strlen(s);
+	int		len = strlen(s);
 	*returnSize = 0;
 	*returnColumnSizes = NULL;
-	char ***ans = NULL;
-	int pathCapacity = 16;
-	char **path = malloc(sizeof(char *) * pathCapacity);
-	int pathSize = 0;
+	char	***ans = NULL;
+	int		pathCapacity = 16;
+	char	**path = malloc(sizeof(char *) * pathCapacity);
+	int		pathSize = 0;
 
 	dfs(s, 0, len, &path, &pathSize, &pathCapacity, &ans, returnSize, returnColumnSizes);
 
@@ -97,10 +97,10 @@ char ***partition(char *s, int *returnSize, int **returnColumnSizes)
 }
 int main(void)
 {
-	char s1[] = "aab";
-	int returnSize1;
-	int *returnColumnSizes1;
-	char ***result1 = partition(s1, &returnSize1, &returnColumnSizes1);
+	char	s1[] = "aab";
+	int		returnSize1;
+	int		*returnColumnSizes1;
+	char	***result1 = partition(s1, &returnSize1, &returnColumnSizes1);
 
 	printf("Input: %s\nOutput:\n", s1);
 	for (int i = 0; i < returnSize1; i++)
