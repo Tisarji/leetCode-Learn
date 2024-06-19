@@ -49,7 +49,7 @@
 int	minDays(int* bloomDay, int bloomDaySize, int m, int k)
 {
 	int left = 1, right = 1e9;
-	if (m * k > bloomDaySize)
+	if ((long)m * (long)k > bloomDaySize)
 		return (-1);
 	while (left < right)
 	{
