@@ -14,15 +14,6 @@ This README is my roadmap to conquering coding challenges on LeetCode. It will g
 ***Choose My Path:*** LeetCode offers a variety of learning paths categorized by difficulty (Easy, Medium, Hard) and topic (Arrays, Linked Lists, Strings, etc.). I can also create custom paths tailored to my interests.
 
 ***Embrace Consistency:*** I should aim for regular practice, even if it's just for short bursts each day. Consistent effort is the key to substantial improvement.
-My LeetCode Diary
-
-This section serves as a daily log to track my progress. Use the following format to record my practice sessions:
-
-> - swap-nodes-in-pairs
-> - minimum-cost-to-hire-k-workers
-> - sqrt(x)
-> - sum-of-all-subset-XOR-totals
-> - wildcard-matching
 
 #### 📝 Learning Notes
 
