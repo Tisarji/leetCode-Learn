@@ -39,7 +39,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void setZeroes(int** matrix, int matrixSize, int* matrixColSize)
+void	setZeroes(int **matrix, int matrixSize, int *matrixColSize)
 {
 	int row = matrixSize;
 	int col = *matrixColSize;
@@ -89,3 +89,25 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize)
 		}
 	}
 }
+
+// int main(void)
+// {
+// 	int matrix[3][3] = {
+// 		{1, 1, 1},
+// 		{1, 0, 1},
+// 		{1, 1, 1}
+// 	};
+// 	int *matrixPtr[3];
+// 	for (int i = 0; i < 3; i++) {
+// 		matrixPtr[i] = matrix[i];
+// 	}
+// 	int matrixColSize = 3;
+// 	setZeroes(matrixPtr, 3, &matrixColSize);
+// 	for (int i = 0; i < 3; i++) {
+// 		for (int j = 0; j < 3; j++) {
+// 			printf("%d ", matrix[i][j]);
+// 		}
+// 		printf("\n");
+// 	}
+// 	return 0;
+// }
